@@ -1,0 +1,30 @@
+<html>
+    <head>
+       <link rel="stylesheet" href= "/css/users.css">
+    </head>
+    <body>
+       
+        <h1>Profile Page</h1>
+
+
+            <% if(user.id == profile_user.id){ %>
+                <!-- if user matches then show the form -->
+                <form action="/users/update/<%= profile_user.id %>" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" value="<%= profile_user.name %>" required>
+                    <input type="email" name="email" placeholder="Your Email" value="<%= profile_user.email %>" required>
+                    <input type="submit"  value="Update">
+                </form>
+                
+            <%}else{%>    
+                <p><%= profile_user.name %></p>
+                <p><%= profile_user.email %></p>
+            <%} %>
+
+    <a href="/">Home page</a> <br>
+    <a href="/users/delete">Logout</a>
+       
+
+
+       
+    </body>
+</html>

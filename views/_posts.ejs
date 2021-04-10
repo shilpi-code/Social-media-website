@@ -1,0 +1,32 @@
+<!-- locals.user means user who posted it and the id of the user who posted it matches with the id of the user who is signed in -->
+<% if (locals.user && locals.user.id == i.user.id){ %> 
+    <small>
+        <a href="/post/destroy/<%= i.id %>">Delete Post</a>
+    </small>
+    <% } %>
+               
+    <li><%= i.content %></li>
+    <small>
+        <%= i.user.name %>
+    </small>
+</ul>
+
+<div id="comment-container">
+    <% if (locals.user) { %>
+    <form action="/comment/create" method="POST">
+        <input type="text" name="content" placeholder="Type here to comment..">
+        <input type="hidden" name="post" value="<%= i._id %>">
+        <button type="submit">Add Comment</button>
+    </form>
+    <% } %>
+    <div class="post-comments-list">
+        <ul id="post-comments-<%= i._id %>">
+            <% for (j of i.comments){%>
+               
+                <%- include('_comments') -%>
+                
+             <% } %>
+                                       
+           
+        </ul>
+    </div>

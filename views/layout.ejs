@@ -1,0 +1,15 @@
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="/css/layout.css">
+        <%- style %>  <!-- will write it after link rel so that it will take the lower one-->
+    </head>
+    <body>
+        <%- include('_header'); -%>   
+     
+        <%- body %>
+        <%- include('_footer'); -%>
+        
+    </body>
+    <%-script %>
+</html>

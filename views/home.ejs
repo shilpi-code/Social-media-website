@@ -1,0 +1,36 @@
+        <title>
+            <%= title %>
+        </title>
+    
+        <h1>Codeial <%= title %></h1>
+
+        <h4>Posts</h4>
+        <!-- <% if (locals.user) { %> -->
+        <form action="/post/create" id="new-post-form" method="POST">
+            <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
+            <button type="submit">Add Post</button>
+        </form>
+        <br>
+        <!-- <% } %> -->
+        <div id="posts-container">
+            <% for( i of post_show) { %> 
+                <ul>  
+                    <%- include('_posts') -%>
+                </ul>
+                    </div>
+                    <br><br><br>
+
+            <% } %>
+        </div>
+        
+        </div>
+    
+    <section id="user-friends">
+        <h4>Friends</h4>
+        <% for(u of all_users){%>
+            <p>
+                <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
+            </p>
+        <% } %>
+    </section>
+    
